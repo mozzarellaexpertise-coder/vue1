@@ -1,14 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../components/home.vue'
-import FriendsView from '../components/friends.vue'
-import Formula2DView from '../components/2Dformula.vue'
-import snake from '@/components/snake.vue'
-    
+
+import HomeView from '@/components/Home.vue'
+import FriendsView from '@/components/Friends.vue'
+import Formula2DView from '@/components/Formula2D.vue'
+import SnakeView from '@/components/Snake.vue'
+import PracticeView from '@/components/Practice.vue'
+import LocalhostView from '@/components/Localhost.vue'
+
 const routes = [
-  { path: '/', name: 'home', component: HomeView },
-  { path: '/friends', name: 'friends', component: FriendsView },
-  { path: '/2dformula', name: '2dformula', component: Formula2DView },
-  { path: '/snake', name: 'snake', component: snake }
+  { path: '/', component: HomeView },
+  { path: '/friends', component: FriendsView },
+  { path: '/2dformula', component: Formula2DView },
+  { path: '/snake', component: SnakeView },
+  { path: '/Practice', component: PracticeView },
+  { path: '/Localhost', component: LocalhostView }  
 ]
 
 const router = createRouter({

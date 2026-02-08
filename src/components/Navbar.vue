@@ -6,6 +6,8 @@
       <li><router-link to="/friends" class="nav-link">Friends</router-link></li>
       <li><router-link to="/2dformula" class="nav-link">2D-Breaks</router-link></li>
       <li><router-link to="/snake" class="nav-link">Snake Game</router-link></li>
+      <li><router-link to="/Practice" class="nav-link">Practice</router-link></li>
+      <li><router-link to="/Localhost" class="nav-link">My Server</router-link></li>
       <!-- Add more links as needed -->
     </ul>
   </nav>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>🍎 Fruit Manager</h1>
+    <h1>My Personal Server</h1>
 
     <!-- Add Fruit -->
     <form class="add-form" @submit.prevent="addFruit">
@@ -61,7 +61,7 @@ const loading = ref(false);
 async function fetchFruits() {
   loading.value = true;
   try {
-    const res = await fetch('http://localhost:3000/api/fruits');
+    const res = await fetch('http://192.168.100.8:3000/api/fruits');
     const data = await res.json();
 
     fruits.value = Array.isArray(data) ? data : data.data;
@@ -80,7 +80,7 @@ async function addFruit() {
 
   loading.value = true;
   try {
-    const res = await fetch('http://localhost:3000/api/fruits', {
+    const res = await fetch('http://192.168.100.8:3000/api/fruits', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -107,7 +107,7 @@ async function addFruit() {
 async function deleteFruit(name) {
   try {
     await fetch(
-      `http://localhost:3000/api/fruits/${encodeURIComponent(name)}`,
+      `http://192.168.100.8:3000/api/fruits/${encodeURIComponent(name)}`,
       { method: 'DELETE' }
     );
 
@@ -119,83 +119,3 @@ async function deleteFruit(name) {
 
 onMounted(fetchFruits);
 </script>
-
-<style scoped>
-.container {
-  max-width: 420px;
-  margin: 40px auto;
-  padding: 24px;
-  border-radius: 12px;
-  background: #fafafa;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  font-family: system-ui, sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.add-form {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.add-form input {
-  flex: 1;
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.add-form button {
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  background: #4caf50;
-  color: white;
-  cursor: pointer;
-}
-
-.add-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.loading {
-  text-align: center;
-  color: #777;
-}
-
-.fruit-list {
-  list-style: none;
-  padding: 0;
-}
-
-.fruit-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  border-bottom: 1px solid #eee;
-}
-
-.fruit-list em {
-  margin-left: 6px;
-  color: #666;
-}
-
-.delete {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.empty {
-  text-align: center;
-  color: #999;
-  margin-top: 16px;
-}
-</style>
